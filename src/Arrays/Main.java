@@ -22,6 +22,10 @@ public class Main {
             System.out.println("value not found");
 
 
+        if(result2!=-1)
+            System.out.println("value found at index :"+result2);
+        else
+            System.out.println("value not found");
 
 
         // int []numbers2=new int[5];
