@@ -1,0 +1,110 @@
+Graph Representations: Adjacency List vs Adjacency Matrix
+تمثيل الرسوم البيانية: القائمة المجاورة مقابل المصفوفة المجاورة
+________________________________________
+ 1️⃣   Introduction / مقدمة
+
+A graph is a data structure consisting of vertices (nodes) and edges (connections).
+Graphs are widely used in computer networks, social networks, maps, and algorithms.
+To store a graph in memory, we have two main representations:
+الـ ( Graph )الرسم البياني هو هيكل بيانات يتكون من العقد (Nodes) و الحواف (Edges).
+تُستخدم الرسوم البيانية على نطاق واسع في شبكات الحاسوب، الشبكات الاجتماعية، الخرائط والخوارزميات.
+لتخزين الرسم البياني في الذاكرة، لدينا تمثيلان رئيسيان:
+1.	القائمة المجاورة (Adjacency List)
+2.	المصفوفة المجاورة (Adjacency Matrix)
+
+Each has different advantages and disadvantages, depending on the graph type and required operations.
+
+كل تمثيل له مزاياه وعيوبه حسب نوع الرسم البياني و العمليات المطلوبة.
+________________________________________
+2️⃣   Adjacency List / القائمة المجاورة
+Definition / التعريف
+
+Adjacency List represents a graph as an array of lists. Each index represents a vertex, and each vertex stores a list of connected vertices.
+
+تمثل القائمة المجاورة الرسم البياني كمصفوفة من القوائم.
+كل فهرس يمثل عقدة، وكل عقدة تخزن قائمة بالعقد المرتبطة بها.
+________________________________________
+Example / المثال
+Vertex A: B → C
+Vertex B: A → D
+Vertex C: A
+Vertex D: B
+
+  /Suggested Diagram    رسم مقترح:
+ارسم عقدتين A وB وC وD مع خطوط توضح الحواف لكل قائمة.
+________________________________________
+Characteristics / الخصائص
+•	Stores only existing edges; efficient for sparse graphs; easy to traverse neighbors.
+•	 تخزن فقط الحواف الموجودة؛ مناسبة للرسوم البيانية قليلة الحواف؛ سهلة للتنقل بين الجيران.
+Advantages / المزايا
+•	Memory efficient for sparse graphs / فعّالة من حيث الذاكرة للرسوم قليلة الحواف
+•	Easy to add/remove edges / سهلة إضافة أو حذف الحواف
+•	Fast neighbor traversal (DFS, BFS) / سريعة في استعراض الجيران
+Disadvantages / العيوب
+•	Slower edge lookup / أبطأ في التحقق من وجود حافة
+•	Slightly complex implementation / تنفيذها أكثر تعقيدًا من المصفوفة
+Time & Space Complexity / التعقيد الزمني والفراغي
+•	Space / الذاكرة: O(V + E)
+•	Edge Lookup / البحث عن حافة: O(degree of vertex / درجة العقدة)
+________________________________________
+3️⃣    Adjacency Matrix / المصفوفة المجاورة
+Definition / التعريف
+
+Adjacency Matrix represents a graph as a 2D array. Rows and columns represent vertices, and each cell indicates the presence (1) or absence (0) of an edge.
+
+تمثل المصفوفة المجاورة الرسم البياني كمصفوفة ثنائية الأبعاد.
+الصفوف والأعمدة تمثل العقد، وكل خلية توضح وجود (1) أو عدم وجود (0) للحافة.
+________________________________________
+Example / المثال
+A B C D
+A [ 0 1 1 0 ]
+B [ 1 0 0 1 ]
+C [ 1 0 0 0 ]
+D [ 0 1 0 0 ]
+________________________________________
+Characteristics / الخصائص
+•	Stores all possible edges / تخزن جميع الحواف الممكنة
+•	Higher memory usage / استخدام أعلى للذاكرة
+Advantages / المزايا
+•	Fast edge lookup O(1) / البحث عن الحافة سريع جدًا O(1)
+•	Simple to implement / بسيطة في التنفيذ
+•	Works well with dense graphs / مناسبة للرسوم الكثيفة
+•	Suitable for weighted graphs / مناسبة للرسوم الموزونة
+Disadvantages / العيوب
+•	High memory usage / استهلاك عالي للذاكرة
+•	Difficult to add/remove vertices / صعبة إضافة أو حذف العقد
+•	Inefficient for sparse graphs / غير فعالة للرسوم قليلة الحواف
+Time & Space Complexity / التعقيد الزمني والفراغي
+•	Space / الذاكرة: O(V²)
+•	Edge Lookup / البحث عن الحافة: O(1)
+________________________________________
+4️⃣    Comparison Table / جدول المقارنة
+Feature / الخاصية	Adjacency List / القائمة المجاورة	Adjacency Matrix / المصفوفة المجاورة
+Memory Usage / استخدام الذاكرة	Low / منخفض	High / مرتفع
+Best for / الأفضل لـ	Sparse Graph / الرسوم القليلة	Dense Graph / الرسوم الكثيفة
+Space Complexity / التعقيد الفراغي	O(V + E)	O(V²)
+Edge Lookup / البحث عن حافة	Slower / أبطأ	Very Fast / سريع جدًا
+Adding Vertices / إضافة عقد	Easy / سهل	Difficult / صعب
+Traversal Efficiency / كفاءة الاستعراض	High / عالي	Moderate / متوسط
+Implementation / سهولة التنفيذ	Moderate / متوسط	Simple / سهل
+________________________________________
+5️⃣   Use Cases / حالات الاستخدام
+Adjacency List / القائمة المجاورة
+•	Sparse graphs / الرسوم القليلة
+•	Memory-efficient applications / تطبيقات فعّالة من حيث الذاكرة
+•	Graph traversal algorithms: BFS, DFS / خوارزميات استعراض الرسوم
+Adjacency Matrix / المصفوفة المجاورة
+•	Dense graphs / الرسوم الكثيفة
+•	Fast edge checking required / يحتاج البحث السريع عن الحواف
+•	Weighted graph algorithms: Dijkstra, Floyd-Warshall / خوارزميات الرسوم الموزونة
+Suggested Diagram / رسم مقترح:
+•	Sparse graph / رسم قليل الحواف على اليسار
+•	Dense graph / رسم كثيف الحواف على اليمين
+________________________________________
+6️⃣    Conclusion / الخلاصة
+•	Adjacency List: Efficient for sparse graphs, low memory usage, better traversal.
+القائمة المجاورة: فعالة للرسوم قليلة الحواف، استهلاك منخفض للذاكرة، أفضل في الاستعراض.
+•	Adjacency Matrix: Efficient for dense graphs, fast edge lookup, simpler implementation.
+المصفوفة المجاورة: فعالة للرسوم الكثيفة، البحث سريع عن الحواف، التنفيذ أبسط.
+Tip / نصيحة: Choose representation depending on graph size, density, and operations.
+اختر التمثيل المناسب حسب حجم الرسم البياني، كثافته، ونوع العمليات المطلوبة.
